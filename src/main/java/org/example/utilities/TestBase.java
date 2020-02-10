@@ -2,8 +2,10 @@ package org.example.utilities;
 
 import org.example.pages.GooglePage;
 import org.example.pages.NHLPage;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -24,8 +26,12 @@ public class TestBase extends PageBase {
     test = extent.createTest(testResult.getMethod().getMethodName());
     System.setProperty("webdriver.chrome.driver", ConfigReader.getDriverPathChrome());
 
-    driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("headless");
 
+    driver = new ChromeDriver(options);
+
+    driver.manage().window().setSize(new Dimension(1920, 1080));
     driver.manage().window().maximize();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
