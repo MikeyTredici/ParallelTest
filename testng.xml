@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Full Suite" parallel="classes" thread-count="5">
-    <test name="SEARCH TEST">
+<suite name="Full Suite" parallel="tests" thread-count="5">
+    <test name="GOOGLE SEARCH TEST">
         <classes>
             <class name="org.example.GoogleTest"/>
+        </classes>
+    </test> <!-- GOOGLE SEARCH TEST -->
+
+    <test name="NHL SEARCH TEST">
+        <classes>
             <class name="org.example.NHLTest"/>
         </classes>
-    </test> <!-- SEARCH TEST -->
+    </test> <!-- NHL SEARCH TEST -->
 </suite>
